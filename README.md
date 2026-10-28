@@ -1,6 +1,6 @@
 # Exp 01 Matrix Multiplication using MapReduce
 
-**Date:**
+**Date:15/08/2026**
 
 ## AIM:
 To implement Matrix Vector Multiplication using the MapReduce programming model.
@@ -32,11 +32,44 @@ Verify and display the resulting product matrix.
 
 ## PROGRAM:
 
-*(Paste the code for Matrix Vector Multiplication using MapReduce here.)*
+```
+from collections import defaultdict
+
+matrix = [ [1, 2, 3], [4, 5, 6], [7, 8, 9] ]
+
+vector = [1, 2, 3]
+
+def mapper(matrix, vector):
+    mapped = []
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            product = matrix[i][j] * vector[j]
+            mapped.append((i, product)) 
+    return mapped
+
+def reducer(mapped_data):
+    result = defaultdict(int)
+    for key, value in mapped_data:
+        result[key] += value
+    return result
+
+mapped = mapper(matrix, vector)
+reduced = reducer(mapped)
+
+print("Mapped Output:")
+for item in mapped:
+    print(item)
+
+print("\nFinal Result (Matrix × Vector):")
+for row in sorted(reduced):
+    print(f"Row {row}: {reduced[row]}")
+```
+
 
 ## OUTPUT:
 
-*(Paste the execution output showing the resultant matrix here.)*
+<img width="416" height="356" alt="image" src="https://github.com/user-attachments/assets/f6ae1b5a-3b0d-44a8-96ae-e365cafd3861" />
+
 
 ## RESULT:
 

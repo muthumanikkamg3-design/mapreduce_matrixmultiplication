@@ -1,9 +1,15 @@
+
+
 # Exp 01 Matrix Multiplication using MapReduce
 
-**Date:15/08/2026**
+Name : MUTHU MANIKKAM G
+
+REG.NO : 212225100029
 
 ## AIM:
+
 To implement Matrix Vector Multiplication using the MapReduce programming model.
+
 ## DESIGN STEPS:
 
 ### Step 1:
